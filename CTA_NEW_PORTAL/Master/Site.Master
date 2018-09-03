@@ -1,0 +1,480 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CTA_NEW_PORTAL.Master.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <link href="<%# ResolveUrl("~/") %>CSS/Master/Site.css" rel="stylesheet" type="text/css" />
+
+
+    <link href="<%# ResolveUrl("~/") %>Assets/Fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%# ResolveUrl("~/") %>Assets/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%# ResolveUrl("~/") %>CSS/Plugin/tipped.css" rel="stylesheet" type="text/css" />
+    <link href="<%# ResolveUrl("~/") %>CSS/Login/util.css" rel="stylesheet" type="text/css" />
+    <link href="<%# ResolveUrl("~/") %>Scripts/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet" />
+
+    <script src="<%# ResolveUrl("~/") %>Scripts/JQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="<%# ResolveUrl("~/") %>Assets/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<%# ResolveUrl("~/") %>Scripts/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+
+
+    <script src="<%# ResolveUrl("~/") %>Scripts/Plugin/nicescrollmin.js" type="text/javascript"></script>
+    <script src="<%# ResolveUrl("~/") %>Scripts/Plugin/tipped.js" type="text/javascript"></script>
+
+    <script src="<%# ResolveUrl("~/") %>Scripts/Custom/Main.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        //Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
+        //    return false;
+        //};
+        //$(function () {
+        //    debugger;
+        //    $(".navbar-nav li, .navbar-nav a, .navbar-nav ul").removeAttr('style');
+        //    $(".dropdown-menu").closest("li").removeClass().addClass("dropdown-toggle");
+        //    $(".dropdown-toggle").find("a[href='javascript:;']").attr("data-toggle", "dropdown");
+        //    $(".dropdown-toggle").find("a[href='javascript:;'].level1").append("<span class='caret'></span>");
+        //    $(".dropdown-toggle").find("a[href='javascript:;']:not(.level1)").closest('li').addClass('dropdown-submenu');
+        //    $("a.selected").closest("li").addClass("active");
+        //    $("a.selected").closest(".dropdown-toggle").addClass("active");
+        //    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+        //        event.preventDefault();
+        //        event.stopPropagation();
+        //        $(this).parent().siblings().removeClass('open');
+        //        $(this).parent().toggleClass('open');
+        //    });
+        //});
+    </script>
+
+    <script type="text/javascript">
+        function isNumber(evt, id) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 46 || charCode > 57) && (evt.keyCode < 96 || evt.keyCode > 105)) {
+                //(evt.shiftKey || (evt.keyCode < 48 || evt.keyCode > 57)) && (evt.keyCode < 96 || evt.keyCode > 105)
+                $("#" + id + "").css("border", "solid 1px red");
+                $("#" + id + "").attr("placeholder", "Only numbers allowed");
+                $("#" + id + "").addClass('your-class');
+                //$("#" + id + "").val(null);
+                evt.preventDefault();
+                //alert("Please Insert Only Numbers");
+                return false;
+            }
+            $("#" + id + "").css("border", "");
+            $("#" + id + "").removeAttr("placeholder", "");
+            return true;
+        }
+
+        function isNumber2(evt, id) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 46 || charCode > 57) && (evt.keyCode < 96 || evt.keyCode > 105)) {
+                $("#" + id + "").css("border", "solid 1px red");
+                $("#" + id + "").attr("placeholder", "Only numbers allowed");
+                $("#" + id + "").addClass('your-class');
+                $('label[for="' + id + '"]').text("* Only numbers allowed");
+                $('label[for="' + id + '"]').show();
+                //$("#" + id + "").val(null);
+                evt.preventDefault();
+                //alert("Please Insert Only Numbers");
+                return false;
+            }
+            $("#" + id + "").css("border", "");
+            $("#" + id + "").removeAttr("placeholder", "");
+            $('label[for="' + id + '"]').text("");
+            $('label[for="' + id + '"]').hide();
+            return true;
+        }
+
+        function ClosepassModal() {
+            $('#passModal').modal('hide');
+            $('.modal-backdrop').addClass('hidn');
+
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            if ($('#lblThemeNo').text() == '1') {
+                //$('a').removeClass('Theme');
+                $('.Theme').addClass('premium');
+            } else if ($('#lblThemeNo').text() == '2') {
+                $('.Theme').addClass('Primary');
+
+            }
+
+            //-----------------------------------------------------------------------------------------
+            function checkFields() {
+                if ($.trim($('#txtNewPassword').val()) != '' && $.trim($('#txtConfirmPassword').val()) != '') {
+
+                    if ($.trim($('#txtNewPassword').val()) != $.trim($('#txtConfirmPassword').val())) {
+                        $('#txtNewPassword, #txtConfirmPassword').css({
+                            "border": "1px solid red"
+                        });
+
+                        document.getElementById('correctFX1').value = "1";
+                        //$("#btnConfirmPass").attr('disabled', 'disabled');
+                        //$('#btnConfirmPass').addClass('aspNetDisabled');
+                        $("#errMsg").text('New password does not match the confirm password');
+                        $("#btnConfirmPass").addClass('hidn');
+                    } else {
+
+                        $('#txtNewPassword, #txtConfirmPassword').css({
+                            "border": ""
+                        });
+
+                        document.getElementById('correctFX1').value = "0";
+                        //$("#btnConfirmPass").removeAttr('disabled');
+                        //$('#btnConfirmPass').removeClass('aspNetDisabled');
+                        $("#errMsg").text('');
+                        $("#btnConfirmPass").removeClass('hidn');
+                    }
+
+                }
+            }
+
+            $('#txtNewPassword').blur(function () {
+                checkFields();
+            });
+
+            $('#txtConfirmPassword').keyup(function () {
+                checkFields();
+            });
+
+            $("#passModal").on("hidden.bs.modal",
+                function () {
+                    $('#txtNewPassword, #txtConfirmPassword, #txtOldPassword').val("");
+                    $('#txtNewPassword, #txtConfirmPassword').css({ "border": "" });
+                    $("#errMsg").text('');
+                });
+            //-----------------------------------------------------------------------------------------
+
+            //Get Menu with Jquery UI
+
+            //$.ajax({
+            //    url: '../Handlers/MenuHandler.ashx',
+            //    method: 'get',
+            //    dataType: 'json',
+            //    success: function (data) {
+            //        //buildMenu($('#menu'), data);
+
+            //        //$('#menu').menu();
+
+            //    }
+            //});
+
+
+            //function buildMenu(parent, items) {
+            //    $.each(items, function () {
+            //        var li = $('<li>' + this.MenuText + '</li>');
+            //        if (!this.Active) {
+            //            li.addClass('ui-state-disabled');
+            //        }
+            //        li.appendTo(parent);
+
+            //        if (this.List && this.List.length > 0) {
+            //            var ul = $('<ul></ul>');
+            //            ul.appendTo(li);
+            //            buildMenu(ul, this.List);
+            //        }
+            //    })
+            //}
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        //Disable Back Button
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
+
+        //function myFunction() {
+        //    return "Write something clever here...";
+        //}
+        // onbeforeunload="return myFunction()"
+    </script>
+
+    <%--<script language="javascript" type="text/javascript">
+        //notify user 'leave' or 'stay'
+        window.history.forward();
+    </script> --%>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <%--<telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+        </telerik:RadAjaxManager>--%>
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+
+        <div id="Wrapper">
+            <div id="Sticky">
+                <div id="Header">
+                    <div id="hdrContent">
+                        <img src="<%= Page.ResolveUrl("~")%>Images/Master/CTA%20logos-05.png" width="180" height="70" alt="Markazia" />
+                        <%--<img src="../Images/Master/CTA%20logos-05.png" width="180" height="70" alt="Markazia" />--%>
+                        <div id="userInfo">
+                            <asp:Panel ID="UserPanel" runat="server" CssClass="userPanel" Visible="false">
+                                <div id="Image">
+                                    <%--<img src="../Images/Master/A.PNG" />--%>
+                                    <%--<i class="fa fa-user-circle-o" aria-hidden="true"></i>--%>
+                                    <asp:Image ID="UserImage" runat="server" AlternateText="No Image Choosen" />
+
+                                </div>
+                                <%--<img id="img" runat="server" alt="" />--%>
+                                <!-- Large button group -->
+                                <div class="btn-group">
+                                    <%--<button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Large button <span class="caret"></span>
+                                </button>--%>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=result %> <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" data-toggle="modal" data-target="#passModal">Change Password</a></li>
+                                        <li><a href="#">Appearance</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="SignOut" href="#" runat="server" onserverclick="SignOut_Click" causesvalidation="false"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a></li>
+                                    </ul>
+                                </div>
+                                <%--<div class="dropdown show">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ahmad Al Qaruoti
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</a>
+                                </div>
+                            </div>--%>
+                            </asp:Panel>
+
+                            <asp:Panel ID="LoginPanel" runat="server" CssClass="userPanel">
+                                <a href='<%=ResolveClientUrl("~/Modules/Home/Login.aspx") %>' class="bold linkBtn">Login</a>
+                                <a href="#" class="bold linkBtn">Sign Up</a>
+                            </asp:Panel>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="Menu" class="Theme">
+                    <div id="mnuContent">
+
+                        <%--<ul>
+                        <li><a href="HRPage.aspx">Employees</a> </li>
+                        <li><a href="#">Students</a>            </li>
+                        <li><a href="#">Payments</a>            </li>
+                        <li><a href="#">Flights</a>             </li>
+                        <li><a href="#">Football</a>            </li>
+                        <li><a href="aboutus.aspx">About us</a> </li>
+                    </ul>--%>
+
+                        <nav class="navbar navbar-default darkOverride Theme">
+
+                            <div class="container-fluid">
+
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <%--<a class="navbar-brand linkWhite" href="~/Modules/Account/AccountSearch.aspx">Markazia</a>--%>
+                                    <a class="navbar-brand linkWhite" href='<%=ResolveClientUrl("~/Modules/Home/Home.aspx") %>'>Markazia</a>
+                                </div>
+
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List" 
+                                        IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav" DynamicMenuStyle-CssClass="dropdown-menu" MaximumDynamicDisplayLevels="20">
+                                    </asp:Menu>
+                                </div>
+
+                            </div>
+
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="width: 100%; height: 165px">
+            </div>
+
+            <asp:Label runat="server" ID="lblThemeNo" CssClass="hidn"></asp:Label>
+
+            <div id="Flex-Container">
+
+                <div class="aside aside-1"><%--Aside 1--%></div>
+
+                <div id="Content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div class="aside aside-2 Expanded">
+                    <div id="Expand">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                    </div>
+                    <%--Aside 2--%>
+                </div>
+
+            </div>
+           
+
+            <div id="Footer">
+                <h5>copyright reserved &copy; 2018</h5>
+            </div>
+
+        </div>
+
+        <asp:UpdatePanel ID="UpdatePanel_ChangePassword" runat="server">
+            <ContentTemplate>
+                <asp:Panel runat="server" DefaultButton="HiddenButton">
+                    <!-- Modal -->
+                    <div class="modal fade" id="passModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Old password</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:TextBox runat="server" ID="txtOldPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator runat="server" ID="txtOldPassword_Validator" ControlToValidate="txtOldPassword" Display="Dynamic" ErrorMessage=" * This Field is Required" ForeColor="Red" ValidationGroup="newPass" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>New password</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:TextBox runat="server" ID="txtNewPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator runat="server" ID="txtNewPassword_Validator" ControlToValidate="txtNewPassword" Display="Dynamic" ErrorMessage=" * This Field is Required" ForeColor="Red" ValidationGroup="newPass" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Re-Type New password</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:TextBox runat="server" ID="txtConfirmPassword" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator runat="server" ID="txtConfirmPassword_Validator" ControlToValidate="txtConfirmPassword" Display="Dynamic" ErrorMessage=" * This Field is Required" ForeColor="Red" ValidationGroup="newPass" />
+                                                <label id="errMsg" style="color: red"></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td dir="rtl">
+                                                <asp:LinkButton runat="server" ID="btnConfirmPass" CssClass="f-x6 hidn" Text="<i class='fa fa-floppy-o' aria-hidden='true'></i>" ValidationGroup="newPass" ToolTip="Save" OnClick="btnConfirmPass_OnClick"></asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <asp:Label runat="server" ID="chngPasswordMsg"></asp:Label>
+                                    <asp:Button ID="HiddenButton" style="display:none;" CausesValidation="False" OnClientClick="return false;" runat="server" Text="Button" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </asp:Panel>
+
+                <asp:HiddenField ID="correctFX1" runat="server" />
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
+        <script type="text/javascript">
+            //this is make disable for sub menus on mouse over
+            //Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
+            //    return false;
+            //};
+
+            var parameter = Sys.WebForms.PageRequestManager.getInstance();
+            //jquery code again for working after postback
+            parameter.add_endRequest(function () {
+
+                if ($('#lblThemeNo').text() == '1') {
+                    //$('a').removeClass('Theme');
+                    $('.Theme').addClass('premium');
+                }
+                else if ($('#lblThemeNo').text() == '2') {
+                    $('.Theme').addClass('Primary');
+
+                }
+
+                //-----------------------------------------------------------------------------------------
+                function checkFields() {
+                    if ($.trim($('#txtNewPassword').val()) != '' && $.trim($('#txtConfirmPassword').val()) != '') {
+
+                        if ($.trim($('#txtNewPassword').val()) != $.trim($('#txtConfirmPassword').val())) {
+                            $('#txtNewPassword, #txtConfirmPassword').css({
+                                "border": "1px solid red"
+                            });
+
+                            document.getElementById('correctFX1').value = "1";
+                            //$("#btnConfirmPass").attr('disabled', 'disabled');
+                            //$('#btnConfirmPass').addClass('aspNetDisabled');
+                            $("#errMsg").text('New password does not match the confirm password');
+                            $("#btnConfirmPass").addClass('hidn');
+                        } else {
+
+                            $('#txtNewPassword, #txtConfirmPassword').css({
+                                "border": ""
+                            });
+
+                            document.getElementById('correctFX1').value = "0";
+                            //$("#btnConfirmPass").removeAttr('disabled');
+                            //$('#btnConfirmPass').removeClass('aspNetDisabled');
+                            $("#errMsg").text('');
+                            $("#btnConfirmPass").removeClass('hidn');
+                        }
+
+                    }
+                }
+
+                $('#txtNewPassword').blur(function () {
+                    checkFields();
+                });
+
+                $('#txtConfirmPassword').keyup(function () {
+                    checkFields();
+                });
+
+                $("#passModal").on("hidden.bs.modal",
+                    function () {
+                        $('#txtNewPassword, #txtConfirmPassword, #txtOldPassword').val("");
+                        $('#txtNewPassword, #txtConfirmPassword').css({ "border": "" });
+                        $("#errMsg").text('');
+                    });
+                //-----------------------------------------------------------------------------------------
+
+            });
+        </script>
+    </form>
+</body>
+</html>

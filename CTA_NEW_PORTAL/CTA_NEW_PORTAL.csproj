@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F86F233C-437F-467D-BA81-262F3D9C2737}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CTA_NEW_PORTAL</RootNamespace>
+    <AssemblyName>CTA_NEW_PORTAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML">
+      <HintPath>..\..\..\Ticket System\Ticket\Bin\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.Design, Version=2016.2.607.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Web.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2016.2.607.45\AdditionalLibraries\Bin45\Telerik.Web.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\lib\RCAJAX\2016.2.607.45\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\lib\RCAJAX\2016.2.607.45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\lib\RCAJAX\2016.2.607.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow">
+      <HintPath>..\lib\RCAJAX\2016.2.607.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2016.2.607.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\lib\RCAJAX\2016.2.607.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\lib\RCAJAX\2016.2.607.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountInfo.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSearch.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSearchMobile.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\Rep_Account.cs" />
+    <Compile Include="App_Code\Rep_General.cs" />
+    <Compile Include="App_Code\Rep_UserAccount.cs" />
+    <Compile Include="CTANEWDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTANEWDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CTANEWDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CTANEWDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CTANEWDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccGategory.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccGender.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccInfoType.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccInfoType1.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccInfoType2.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccTilte.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\AccountContact.aspx.cs">
+      <DependentUpon>AccountContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\AccountContact.aspx.designer.cs">
+      <DependentUpon>AccountContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\AccountCrdt.aspx.cs">
+      <DependentUpon>AccountCrdt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\AccountCrdt.aspx.designer.cs">
+      <DependentUpon>AccountCrdt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\AccountInfo.aspx.cs">
+      <DependentUpon>AccountInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\AccountInfo.aspx.designer.cs">
+      <DependentUpon>AccountInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\AccountSales.aspx.cs">
+      <DependentUpon>AccountSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\AccountSales.aspx.designer.cs">
+      <DependentUpon>AccountSales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Home\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Home\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Home\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Home\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\AccountAdd.aspx.cs">
+      <DependentUpon>AccountAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\AccountAdd.aspx.designer.cs">
+      <DependentUpon>AccountAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\AccountSearch.aspx.cs">
+      <DependentUpon>AccountSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\AccountSearch.aspx.designer.cs">
+      <DependentUpon>AccountSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Account\AccountView.aspx.cs">
+      <DependentUpon>AccountView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Account\AccountView.aspx.designer.cs">
+      <DependentUpon>AccountView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Account\Srvc_CheckName.asmx.cs">
+      <DependentUpon>Srvc_CheckName.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysMenuRun.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysUserInfoGet_Result.cs">
+      <DependentUpon>CTANEWDBModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\RadCaptcha\0.wav" />
+    <Content Include="App_Data\RadCaptcha\1.wav" />
+    <Content Include="App_Data\RadCaptcha\2.wav" />
+    <Content Include="App_Data\RadCaptcha\3.wav" />
+    <Content Include="App_Data\RadCaptcha\4.wav" />
+    <Content Include="App_Data\RadCaptcha\5.wav" />
+    <Content Include="App_Data\RadCaptcha\6.wav" />
+    <Content Include="App_Data\RadCaptcha\7.wav" />
+    <Content Include="App_Data\RadCaptcha\8.wav" />
+    <Content Include="App_Data\RadCaptcha\9.wav" />
+    <Content Include="App_Data\RadCaptcha\A.wav" />
+    <Content Include="App_Data\RadCaptcha\B.wav" />
+    <Content Include="App_Data\RadCaptcha\C.wav" />
+    <Content Include="App_Data\RadCaptcha\D.wav" />
+    <Content Include="App_Data\RadCaptcha\E.wav" />
+    <Content Include="App_Data\RadCaptcha\F.wav" />
+    <Content Include="App_Data\RadCaptcha\G.wav" />
+    <Content Include="App_Data\RadCaptcha\H.wav" />
+    <Content Include="App_Data\RadCaptcha\I.wav" />
+    <Content Include="App_Data\RadCaptcha\J.wav" />
+    <Content Include="App_Data\RadCaptcha\K.wav" />
+    <Content Include="App_Data\RadCaptcha\L.wav" />
+    <Content Include="App_Data\RadCaptcha\M.wav" />
+    <Content Include="App_Data\RadCaptcha\N.wav" />
+    <Content Include="App_Data\RadCaptcha\O.wav" />
+    <Content Include="App_Data\RadCaptcha\P.wav" />
+    <Content Include="App_Data\RadCaptcha\Q.wav" />
+    <Content Include="App_Data\RadCaptcha\R.wav" />
+    <Content Include="App_Data\RadCaptcha\S.wav" />
+    <Content Include="App_Data\RadCaptcha\T.wav" />
+    <Content Include="App_Data\RadCaptcha\U.wav" />
+    <Content Include="App_Data\RadCaptcha\V.wav" />
+    <Content Include="App_Data\RadCaptcha\W.wav" />
+    <Content Include="App_Data\RadCaptcha\X.wav" />
+    <Content Include="App_Data\RadCaptcha\Y.wav" />
+    <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="Assets\bootstrap-3.3.7\css\bootstrap-theme.css" />
+    <Content Include="Assets\bootstrap-3.3.7\css\bootstrap-theme.min.css" />
+    <Content Include="Assets\bootstrap-3.3.7\css\bootstrap.css" />
+    <Content Include="Assets\bootstrap-3.3.7\css\bootstrap.min.css" />
+    <Content Include="Assets\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\bootstrap-3.3.7\js\bootstrap.js" />
+    <Content Include="Assets\bootstrap-3.3.7\js\bootstrap.min.js" />
+    <Content Include="Assets\bootstrap-3.3.7\js\npm.js" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap-grid.css" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap-grid.min.css" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap-reboot.css" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap-reboot.min.css" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap.css" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap.min.css" />
+    <Content Include="Assets\bootstrap-4.0\js\bootstrap.js" />
+    <Content Include="Assets\bootstrap-4.0\js\bootstrap.min.js" />
+    <Content Include="Assets\bootstrap-4.0\js\popper.js" />
+    <Content Include="Assets\bootstrap-4.0\js\popper.min.js" />
+    <Content Include="Assets\bootstrap-4.0\js\tooltip.js" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Assets\Fonts\montserrat\OFL.txt" />
+    <Content Include="CSS\Master\Site.css" />
+    <Content Include="CSS\Plugin\tipped.css" />
+    <Content Include="CTANEWDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CTANEWDBModel.edmx</DependentUpon>
+      <LastGenOutput>CTANEWDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CTANEWDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CTANEWDBModel.edmx</DependentUpon>
+      <LastGenOutput>CTANEWDBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Images\GIF\3.gif" />
+    <Content Include="Images\Icons\favicon.ico" />
+    <Content Include="Images\Master\CTA logos-05.png" />
+    <Content Include="Images\Master\User.png" />
+    <Content Include="CSS\Login\main.css" />
+    <Content Include="CSS\Login\util.css" />
+    <Content Include="Modules\Account\AccountContact.aspx" />
+    <Content Include="Modules\Account\AccountCrdt.aspx" />
+    <Content Include="Modules\Account\AccountInfo.aspx" />
+    <Content Include="Modules\Account\AccountSales.aspx" />
+    <Content Include="Modules\Home\Home.aspx" />
+    <Content Include="Images\PNG\edit.png" />
+    <Content Include="Modules\Account\AccountAdd.aspx" />
+    <Content Include="Modules\Account\AccountSearch.aspx" />
+    <Content Include="Modules\Account\AccountView.aspx" />
+    <Content Include="Scripts\Custom\EnglishInput.js" />
+    <Content Include="Scripts\Custom\EnglishInput2.js" />
+    <Content Include="Scripts\JQuery\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\Custom\jquery-ui.min.js" />
+    <Content Include="Scripts\Custom\Main.js" />
+    <Content Include="Scripts\Custom\NumaricValidator.js" />
+    <Content Include="Scripts\Custom\numeral.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\RadSpell\de-DE.tdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\RadSpell\en-US.tdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\RadSpell\fr-FR.tdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modules\Home\Login.aspx" />
+    <Content Include="Scripts\Custom\Fliper.js" />
+    <Content Include="Scripts\Custom\Panels.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\AUTHORS.txt" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\external\jquery\jquery.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_444444_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_555555_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_777620_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_777777_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\index.html" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.min.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.structure.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.structure.min.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.theme.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\LICENSE.txt" />
+    <Content Include="Scripts\JQuery\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\Plugin\nicescrollmin.js" />
+    <Content Include="Scripts\Plugin\tipped.js" />
+    <Content Include="Scripts\Validation\main.js" />
+    <Content Include="Scripts\Validation\_main.js" />
+    <Content Include="Scripts\Validation\_main2.js" />
+    <Content Include="Services\Account\Srvc_CheckName.asmx" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\bootstrap-3.3.7\css\bootstrap-theme.css.map" />
+    <Content Include="Assets\bootstrap-3.3.7\css\bootstrap-theme.min.css.map" />
+    <Content Include="Assets\bootstrap-3.3.7\css\bootstrap.css.map" />
+    <Content Include="Assets\bootstrap-3.3.7\css\bootstrap.min.css.map" />
+    <Content Include="Assets\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap-grid.css.map" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap-grid.min.css.map" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap-reboot.css.map" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap.css.map" />
+    <Content Include="Assets\bootstrap-4.0\css\bootstrap.min.css.map" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Assets\Fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Assets\Fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Assets\Fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Master\Site.Master" />
+    <EntityDeploy Include="CTANEWDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CTANEWDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="CTANEWDBModel.edmx.diagram">
+      <DependentUpon>CTANEWDBModel.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CTA_NEW_PORTAL.pubxml" />
+    <Content Include="Scripts\jquery-ui-1.12.1.custom\package.json" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\JPG\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49573</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49573/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

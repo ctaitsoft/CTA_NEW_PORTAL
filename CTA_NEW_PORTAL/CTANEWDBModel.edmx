@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CTANewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccID" />
+          </Key>
+          <Property Name="AccID" Type="int" Nullable="false" />
+          <Property Name="AccNo" Type="int" />
+          <Property Name="AccName" Type="nvarchar" MaxLength="65" />
+          <Property Name="AccName1" Type="nvarchar" MaxLength="15" />
+          <Property Name="AccName2" Type="nvarchar" MaxLength="15" />
+          <Property Name="AccName3" Type="nvarchar" MaxLength="15" />
+          <Property Name="AccName4" Type="nvarchar" MaxLength="15" />
+          <Property Name="AccCategory" Type="tinyint" />
+          <Property Name="AccTitle" Type="tinyint" />
+          <Property Name="AccGender" Type="tinyint" />
+          <Property Name="AccResp" Type="int" />
+          <Property Name="AccMemo" Type="ntext" />
+          <Property Name="AccStatus" Type="tinyint" />
+          <Property Name="AccFile" Type="tinyint" />
+          <Property Name="AccPic" Type="image" />
+          <Property Name="UserCode" Type="int" />
+          <Property Name="Cancelled" Type="bit" Nullable="false" />
+          <Property Name="CancelDate" Type="date" />
+          <Property Name="EnterUser" Type="int" />
+          <Property Name="EnterDate" Type="date" />
+          <Property Name="EnterTime" Type="time" Precision="0" />
+          <Property Name="ModUser" Type="int" />
+          <Property Name="ModDate" Type="date" />
+          <Property Name="ModTime" Type="time" Precision="0" />
+        </EntityType>
+        <EntityType Name="AccountInfo">
+          <Key>
+            <PropertyRef Name="AccID" />
+            <PropertyRef Name="LineID" />
+          </Key>
+          <Property Name="AccID" Type="int" Nullable="false" />
+          <Property Name="LineID" Type="smallint" Nullable="false" />
+          <Property Name="InfoType" Type="tinyint" />
+          <Property Name="InfoData" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cancelled" Type="bit" Nullable="false" />
+          <Property Name="CancelDate" Type="date" />
+          <Property Name="EnterUser" Type="int" />
+          <Property Name="EnterDate" Type="date" />
+          <Property Name="EnterTime" Type="time" Precision="0" />
+          <Property Name="ModUser" Type="int" />
+          <Property Name="ModDate" Type="date" />
+          <Property Name="ModTime" Type="time" Precision="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.AccountSearch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AccountSearch">
+          <Key>
+            <PropertyRef Name="AccID" />
+          </Key>
+          <Property Name="AccID" Type="bigint" Nullable="false" />
+          <Property Name="AccNo" Type="bigint" />
+          <Property Name="AccName" Type="nvarchar" MaxLength="75" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.AccountSearchMobile' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AccountSearchMobile">
+          <Key>
+            <PropertyRef Name="AccID" />
+          </Key>
+          <Property Name="AccID" Type="int" Nullable="false" />
+          <Property Name="AccNo" Type="int" />
+          <Property Name="AccName" Type="nvarchar" MaxLength="65" />
+          <Property Name="AccMobile1" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccMobile2" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.DataAccGategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DataAccGategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="tinyint" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.DataAccGender' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DataAccGender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="tinyint" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.DataAccInfoType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DataAccInfoType">
+          <Key>
+            <PropertyRef Name="InfoTypeID" />
+          </Key>
+          <Property Name="InfoTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="InfoTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="InfoTypeCategory" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.DataAccInfoType1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DataAccInfoType1">
+          <Key>
+            <PropertyRef Name="InfoTypeID" />
+          </Key>
+          <Property Name="InfoTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="InfoTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="InfoTypeCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="InfoTypeMandatory" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.DataAccInfoType2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DataAccInfoType2">
+          <Key>
+            <PropertyRef Name="InfoTypeID" />
+          </Key>
+          <Property Name="InfoTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="InfoTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="InfoTypeCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="InfoTypeMandatory" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.DataAccTilte' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DataAccTilte">
+          <Key>
+            <PropertyRef Name="TitleID" />
+          </Key>
+          <Property Name="TitleID" Type="tinyint" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'CTANew.dbo.SysMenuRun' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SysMenuRun">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="int" Nullable="false" />
+          <Property Name="MenuLevel" Type="int" />
+          <Property Name="MenuHeader" Type="nvarchar" MaxLength="10" />
+          <Property Name="MenuSort" Type="nvarchar" MaxLength="10" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="20" />
+          <Property Name="MenuPic" Type="image" />
+          <Property Name="ns" Type="int" />
+        </EntityType>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SysUserInfoGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserLog" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserPass" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserIPLan" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserIPWan" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserDeviceName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserMacID" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="CTANewModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountInfo" EntityType="Self.AccountInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountSearch" EntityType="Self.AccountSearch" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AccountSearch].[AccID] AS [AccID], 
+    [AccountSearch].[AccNo] AS [AccNo], 
+    [AccountSearch].[AccName] AS [AccName]
+    FROM [dbo].[AccountSearch] AS [AccountSearch]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AccountSearchMobile" EntityType="Self.AccountSearchMobile" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AccountSearchMobile].[AccID] AS [AccID], 
+    [AccountSearchMobile].[AccNo] AS [AccNo], 
+    [AccountSearchMobile].[AccName] AS [AccName], 
+    [AccountSearchMobile].[AccMobile1] AS [AccMobile1], 
+    [AccountSearchMobile].[AccMobile2] AS [AccMobile2]
+    FROM [dbo].[AccountSearchMobile] AS [AccountSearchMobile]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DataAccGategory" EntityType="Self.DataAccGategory" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DataAccGategory].[CategoryID] AS [CategoryID], 
+    [DataAccGategory].[Category] AS [Category]
+    FROM [dbo].[DataAccGategory] AS [DataAccGategory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DataAccGender" EntityType="Self.DataAccGender" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DataAccGender].[GenderID] AS [GenderID], 
+    [DataAccGender].[Gender] AS [Gender]
+    FROM [dbo].[DataAccGender] AS [DataAccGender]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DataAccInfoType" EntityType="Self.DataAccInfoType" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DataAccInfoType].[InfoTypeID] AS [InfoTypeID], 
+    [DataAccInfoType].[InfoTypeName] AS [InfoTypeName], 
+    [DataAccInfoType].[InfoTypeCategory] AS [InfoTypeCategory]
+    FROM [dbo].[DataAccInfoType] AS [DataAccInfoType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DataAccInfoType1" EntityType="Self.DataAccInfoType1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DataAccInfoType1].[InfoTypeID] AS [InfoTypeID], 
+    [DataAccInfoType1].[InfoTypeName] AS [InfoTypeName], 
+    [DataAccInfoType1].[InfoTypeCategory] AS [InfoTypeCategory], 
+    [DataAccInfoType1].[InfoTypeMandatory] AS [InfoTypeMandatory]
+    FROM [dbo].[DataAccInfoType1] AS [DataAccInfoType1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DataAccInfoType2" EntityType="Self.DataAccInfoType2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DataAccInfoType2].[InfoTypeID] AS [InfoTypeID], 
+    [DataAccInfoType2].[InfoTypeName] AS [InfoTypeName], 
+    [DataAccInfoType2].[InfoTypeCategory] AS [InfoTypeCategory], 
+    [DataAccInfoType2].[InfoTypeMandatory] AS [InfoTypeMandatory]
+    FROM [dbo].[DataAccInfoType2] AS [DataAccInfoType2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DataAccTilte" EntityType="Self.DataAccTilte" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DataAccTilte].[TitleID] AS [TitleID], 
+    [DataAccTilte].[Title] AS [Title]
+    FROM [dbo].[DataAccTilte] AS [DataAccTilte]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SysMenuRun" EntityType="Self.SysMenuRun" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SysMenuRun].[MenuID] AS [MenuID], 
+    [SysMenuRun].[MenuLevel] AS [MenuLevel], 
+    [SysMenuRun].[MenuHeader] AS [MenuHeader], 
+    [SysMenuRun].[MenuSort] AS [MenuSort], 
+    [SysMenuRun].[MenuName] AS [MenuName], 
+    [SysMenuRun].[MenuPic] AS [MenuPic], 
+    [SysMenuRun].[ns] AS [ns]
+    FROM [dbo].[SysMenuRun] AS [SysMenuRun]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CTANewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="AccID" />
+          </Key>
+          <Property Name="AccID" Type="Int32" Nullable="false" />
+          <Property Name="AccNo" Type="Int32" />
+          <Property Name="AccName" Type="String" MaxLength="65" FixedLength="false" Unicode="true" />
+          <Property Name="AccName1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="AccName2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="AccName3" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="AccName4" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="AccCategory" Type="Byte" />
+          <Property Name="AccTitle" Type="Byte" />
+          <Property Name="AccGender" Type="Byte" />
+          <Property Name="AccResp" Type="Int32" />
+          <Property Name="AccMemo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccStatus" Type="Byte" />
+          <Property Name="AccFile" Type="Byte" />
+          <Property Name="AccPic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UserCode" Type="Int32" />
+          <Property Name="Cancelled" Type="Boolean" Nullable="false" />
+          <Property Name="CancelDate" Type="DateTime" Precision="0" />
+          <Property Name="EnterUser" Type="Int32" />
+          <Property Name="EnterDate" Type="DateTime" Precision="0" />
+          <Property Name="EnterTime" Type="Time" Precision="0" />
+          <Property Name="ModUser" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="0" />
+          <Property Name="ModTime" Type="Time" Precision="0" />
+        </EntityType>
+        <EntityType Name="AccountInfo">
+          <Key>
+            <PropertyRef Name="AccID" />
+            <PropertyRef Name="LineID" />
+          </Key>
+          <Property Name="AccID" Type="Int32" Nullable="false" />
+          <Property Name="LineID" Type="Int16" Nullable="false" />
+          <Property Name="InfoType" Type="Byte" />
+          <Property Name="InfoData" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cancelled" Type="Boolean" Nullable="false" />
+          <Property Name="CancelDate" Type="DateTime" Precision="0" />
+          <Property Name="EnterUser" Type="Int32" />
+          <Property Name="EnterDate" Type="DateTime" Precision="0" />
+          <Property Name="EnterTime" Type="Time" Precision="0" />
+          <Property Name="ModUser" Type="Int32" />
+          <Property Name="ModDate" Type="DateTime" Precision="0" />
+          <Property Name="ModTime" Type="Time" Precision="0" />
+        </EntityType>
+        <EntityType Name="AccountSearch">
+          <Key>
+            <PropertyRef Name="AccID" />
+          </Key>
+          <Property Name="AccID" Type="Int64" Nullable="false" />
+          <Property Name="AccNo" Type="Int64" />
+          <Property Name="AccName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AccountSearchMobile">
+          <Key>
+            <PropertyRef Name="AccID" />
+          </Key>
+          <Property Name="AccID" Type="Int32" Nullable="false" />
+          <Property Name="AccNo" Type="Int32" />
+          <Property Name="AccName" Type="String" MaxLength="65" FixedLength="false" Unicode="true" />
+          <Property Name="AccMobile1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccMobile2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DataAccGategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Byte" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DataAccGender">
+          <Key>
+            <PropertyRef Name="GenderID" />
+          </Key>
+          <Property Name="GenderID" Type="Byte" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DataAccInfoType">
+          <Key>
+            <PropertyRef Name="InfoTypeID" />
+          </Key>
+          <Property Name="InfoTypeID" Type="Byte" Nullable="false" />
+          <Property Name="InfoTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InfoTypeCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DataAccInfoType1">
+          <Key>
+            <PropertyRef Name="InfoTypeID" />
+          </Key>
+          <Property Name="InfoTypeID" Type="Byte" Nullable="false" />
+          <Property Name="InfoTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InfoTypeCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InfoTypeMandatory" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DataAccInfoType2">
+          <Key>
+            <PropertyRef Name="InfoTypeID" />
+          </Key>
+          <Property Name="InfoTypeID" Type="Byte" Nullable="false" />
+          <Property Name="InfoTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InfoTypeCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InfoTypeMandatory" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DataAccTilte">
+          <Key>
+            <PropertyRef Name="TitleID" />
+          </Key>
+          <Property Name="TitleID" Type="Byte" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SysMenuRun">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="Int32" Nullable="false" />
+          <Property Name="MenuLevel" Type="Int32" />
+          <Property Name="MenuHeader" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MenuSort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MenuName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MenuPic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ns" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="CTANewEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="AccountInfoes" EntityType="Self.AccountInfo" />
+          <EntitySet Name="AccountSearches" EntityType="Self.AccountSearch" />
+          <EntitySet Name="AccountSearchMobiles" EntityType="Self.AccountSearchMobile" />
+          <EntitySet Name="DataAccGategories" EntityType="Self.DataAccGategory" />
+          <EntitySet Name="DataAccGenders" EntityType="Self.DataAccGender" />
+          <EntitySet Name="DataAccInfoTypes" EntityType="Self.DataAccInfoType" />
+          <EntitySet Name="DataAccInfoType1" EntityType="Self.DataAccInfoType1" />
+          <EntitySet Name="DataAccInfoType2" EntityType="Self.DataAccInfoType2" />
+          <EntitySet Name="DataAccTiltes" EntityType="Self.DataAccTilte" />
+          <EntitySet Name="SysMenuRuns" EntityType="Self.SysMenuRun" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CTANewModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CTANewModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SysUserInfoGet" ReturnType="Collection(CTANewModel.SysUserInfoGet_Result)">
+            <Parameter Name="UserLog" Mode="In" Type="String" />
+            <Parameter Name="UserPass" Mode="In" Type="String" />
+            <Parameter Name="UserIPLan" Mode="In" Type="String" />
+            <Parameter Name="UserIPWan" Mode="In" Type="String" />
+            <Parameter Name="UserDeviceName" Mode="In" Type="String" />
+            <Parameter Name="UserMacID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SysUserInfoGet_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="UserNo" Nullable="true" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="UserRole" Nullable="true" />
+          <Property Type="Int32" Name="UserLevel" Nullable="true" />
+          <Property Type="Int32" Name="UserCode" Nullable="true" />
+          <Property Type="Binary" Name="UserPic" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CTANewModelStoreContainer" CdmEntityContainer="CTANewEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="CTANewModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="AccID" ColumnName="AccID" />
+                <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+                <ScalarProperty Name="AccName" ColumnName="AccName" />
+                <ScalarProperty Name="AccName1" ColumnName="AccName1" />
+                <ScalarProperty Name="AccName2" ColumnName="AccName2" />
+                <ScalarProperty Name="AccName3" ColumnName="AccName3" />
+                <ScalarProperty Name="AccName4" ColumnName="AccName4" />
+                <ScalarProperty Name="AccCategory" ColumnName="AccCategory" />
+                <ScalarProperty Name="AccTitle" ColumnName="AccTitle" />
+                <ScalarProperty Name="AccGender" ColumnName="AccGender" />
+                <ScalarProperty Name="AccResp" ColumnName="AccResp" />
+                <ScalarProperty Name="AccMemo" ColumnName="AccMemo" />
+                <ScalarProperty Name="AccStatus" ColumnName="AccStatus" />
+                <ScalarProperty Name="AccFile" ColumnName="AccFile" />
+                <ScalarProperty Name="AccPic" ColumnName="AccPic" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="EnterUser" ColumnName="EnterUser" />
+                <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+                <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
+                <ScalarProperty Name="ModUser" ColumnName="ModUser" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+                <ScalarProperty Name="ModTime" ColumnName="ModTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountInfoes">
+            <EntityTypeMapping TypeName="CTANewModel.AccountInfo">
+              <MappingFragment StoreEntitySet="AccountInfo">
+                <ScalarProperty Name="AccID" ColumnName="AccID" />
+                <ScalarProperty Name="LineID" ColumnName="LineID" />
+                <ScalarProperty Name="InfoType" ColumnName="InfoType" />
+                <ScalarProperty Name="InfoData" ColumnName="InfoData" />
+                <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="EnterUser" ColumnName="EnterUser" />
+                <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+                <ScalarProperty Name="EnterTime" ColumnName="EnterTime" />
+                <ScalarProperty Name="ModUser" ColumnName="ModUser" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+                <ScalarProperty Name="ModTime" ColumnName="ModTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountSearches">
+            <EntityTypeMapping TypeName="CTANewModel.AccountSearch">
+              <MappingFragment StoreEntitySet="AccountSearch">
+                <ScalarProperty Name="AccID" ColumnName="AccID" />
+                <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+                <ScalarProperty Name="AccName" ColumnName="AccName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountSearchMobiles">
+            <EntityTypeMapping TypeName="CTANewModel.AccountSearchMobile">
+              <MappingFragment StoreEntitySet="AccountSearchMobile">
+                <ScalarProperty Name="AccID" ColumnName="AccID" />
+                <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+                <ScalarProperty Name="AccName" ColumnName="AccName" />
+                <ScalarProperty Name="AccMobile1" ColumnName="AccMobile1" />
+                <ScalarProperty Name="AccMobile2" ColumnName="AccMobile2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataAccGategories">
+            <EntityTypeMapping TypeName="CTANewModel.DataAccGategory">
+              <MappingFragment StoreEntitySet="DataAccGategory">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataAccGenders">
+            <EntityTypeMapping TypeName="CTANewModel.DataAccGender">
+              <MappingFragment StoreEntitySet="DataAccGender">
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataAccInfoTypes">
+            <EntityTypeMapping TypeName="CTANewModel.DataAccInfoType">
+              <MappingFragment StoreEntitySet="DataAccInfoType">
+                <ScalarProperty Name="InfoTypeID" ColumnName="InfoTypeID" />
+                <ScalarProperty Name="InfoTypeName" ColumnName="InfoTypeName" />
+                <ScalarProperty Name="InfoTypeCategory" ColumnName="InfoTypeCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataAccInfoType1">
+            <EntityTypeMapping TypeName="CTANewModel.DataAccInfoType1">
+              <MappingFragment StoreEntitySet="DataAccInfoType1">
+                <ScalarProperty Name="InfoTypeID" ColumnName="InfoTypeID" />
+                <ScalarProperty Name="InfoTypeName" ColumnName="InfoTypeName" />
+                <ScalarProperty Name="InfoTypeCategory" ColumnName="InfoTypeCategory" />
+                <ScalarProperty Name="InfoTypeMandatory" ColumnName="InfoTypeMandatory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataAccInfoType2">
+            <EntityTypeMapping TypeName="CTANewModel.DataAccInfoType2">
+              <MappingFragment StoreEntitySet="DataAccInfoType2">
+                <ScalarProperty Name="InfoTypeID" ColumnName="InfoTypeID" />
+                <ScalarProperty Name="InfoTypeName" ColumnName="InfoTypeName" />
+                <ScalarProperty Name="InfoTypeCategory" ColumnName="InfoTypeCategory" />
+                <ScalarProperty Name="InfoTypeMandatory" ColumnName="InfoTypeMandatory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataAccTiltes">
+            <EntityTypeMapping TypeName="CTANewModel.DataAccTilte">
+              <MappingFragment StoreEntitySet="DataAccTilte">
+                <ScalarProperty Name="TitleID" ColumnName="TitleID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysMenuRuns">
+            <EntityTypeMapping TypeName="CTANewModel.SysMenuRun">
+              <MappingFragment StoreEntitySet="SysMenuRun">
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="MenuLevel" ColumnName="MenuLevel" />
+                <ScalarProperty Name="MenuHeader" ColumnName="MenuHeader" />
+                <ScalarProperty Name="MenuSort" ColumnName="MenuSort" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="MenuPic" ColumnName="MenuPic" />
+                <ScalarProperty Name="ns" ColumnName="ns" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CTANewModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CTANewModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CTANewModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="CTANewModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CTANewModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="CTANewModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CTANewModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CTANewModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="SysUserInfoGet" FunctionName="CTANewModel.Store.SysUserInfoGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CTANewModel.SysUserInfoGet_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="UserPic" ColumnName="UserPic" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
